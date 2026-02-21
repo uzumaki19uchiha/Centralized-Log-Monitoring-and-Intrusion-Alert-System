@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+
+  log-handler:
+    build: ./log_handler
+    container_name: log-handler
+    ports:
+      - "5000:5000"
+    depends_on:
+      - ml-model
+
+  ml-model:
+    build: ./ml_model
+    container_name: ml-model
+    ports:
+      - "5000:5000"
